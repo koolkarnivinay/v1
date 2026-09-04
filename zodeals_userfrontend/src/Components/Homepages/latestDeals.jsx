@@ -8,6 +8,7 @@ import axios from 'axios';
 import { hosturl } from '../libs/Constant';
 import CouponDetailDialog from '../Coupenenables/coupenenable';
 import SignInRequiredPrompt from '../authentications/SigninOverlay';
+import premiumBg from '../../assets/images/premium_section_bg.jpg';
 
 // ── Same card style as Top Deals ──
 const DealCard = ({ deal, onDealClick, wishlist, toggleWishlist }) => {
@@ -184,7 +185,17 @@ export default function LatestDeals() {
   const totalPages = Math.ceil(deals.length / itemsPerPage);
 
   return (
-    <Box sx={{ backgroundColor: '#F5F7FA', py: 5 }}>
+    <Box sx={{
+      position: 'relative',
+      py: 5,
+      backgroundColor: '#F8FAFC',
+      backgroundImage: `radial-gradient(ellipse at top right, rgba(255,107,53,0.06), transparent 60%), radial-gradient(ellipse at bottom left, rgba(230,57,70,0.04), transparent 60%), url(${premiumBg})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      borderTop: '1px solid rgba(226,232,240,0.8)',
+      borderBottom: '1px solid rgba(226,232,240,0.8)',
+    }}>
       <Container>
         {/* Heading */}
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>

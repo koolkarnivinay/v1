@@ -13,7 +13,7 @@ import PharmacyCoupens from './pharmacypage';
 import ElectronicsPage from './electronicspage';
 import SkinCarePage from './skincarepage';
 import FlightDealsPage from './flightdealspage';
-import FavoriteDealsBanner from './FavouriteDealBanner';
+import FavoriteDealsBanner, { MerchantPartnerBanner } from './FavouriteDealBanner';
 import DealsOfTheDay from './DealsofDay';
 import CustomerReviews from './reviewsPage';
 import ErrorBoundary from '../libs/ErrorBoundary';
@@ -26,15 +26,16 @@ export default function HomePage() {
       <ErrorBoundary debug label="TopDeals"><TopDeals /></ErrorBoundary>
       <ErrorBoundary debug label="DealsOfTheDay"><DealsOfTheDay /></ErrorBoundary>
       <ErrorBoundary debug label="CategoriesSection"><CategoriesSection /></ErrorBoundary>
+      <ErrorBoundary debug label="GrabDealsCarousel"><GrabDealsCarousel /></ErrorBoundary>
       <ErrorBoundary debug label="LatestDeals"><LatestDeals /></ErrorBoundary>
       <ErrorBoundary debug label="CouponsSection"><CouponsSection /></ErrorBoundary>
-      <ErrorBoundary debug label="GrabDealsCarousel"><GrabDealsCarousel /></ErrorBoundary>
       <ErrorBoundary debug label="WomensFashion"><WomensFashion /></ErrorBoundary>
       <ErrorBoundary debug label="MensFashionDeals"><MensFashionDeals /></ErrorBoundary>
       <ErrorBoundary debug label="PharmacyCoupens"><PharmacyCoupens /></ErrorBoundary>
       <ErrorBoundary debug label="ElectronicsPage"><ElectronicsPage /></ErrorBoundary>
       <ErrorBoundary debug label="SkinCarePage"><SkinCarePage /></ErrorBoundary>
       <ErrorBoundary debug label="FlightDealsPage"><FlightDealsPage /></ErrorBoundary>
+      <ErrorBoundary debug label="MerchantPartnerBanner"><MerchantPartnerBanner /></ErrorBoundary>
       <ErrorBoundary debug label="FavoriteDealsBanner"><FavoriteDealsBanner /></ErrorBoundary>
       <ErrorBoundary debug label="CustomerReviews"><CustomerReviews /></ErrorBoundary>
     </Box>

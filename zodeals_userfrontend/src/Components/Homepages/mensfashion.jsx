@@ -23,6 +23,7 @@
   import CheckCircleIcon from "@mui/icons-material/CheckCircle";
   import { hosturl } from "../libs/Constant";
   import CouponDetailDialog from "../Coupenenables/coupenenable";
+  import premiumBg from "../../assets/images/premium_section_bg.jpg";
   import SignInRequiredPrompt from "../authentications/SigninOverlay";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
@@ -347,8 +348,19 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 }, []);
 
     return (
-      <Container sx={{ marginTop: 5, marginBottom: 2 }}>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+      <Box sx={{
+        position: 'relative',
+        py: 5,
+        backgroundColor: '#F8FAFC',
+        backgroundImage: `radial-gradient(ellipse at top right, rgba(59,130,246,0.06), transparent 60%), radial-gradient(ellipse at bottom left, rgba(236,72,153,0.04), transparent 60%), url(${premiumBg})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        borderTop: '1px solid rgba(226,232,240,0.8)',
+        borderBottom: '1px solid rgba(226,232,240,0.8)',
+      }}>
+        <Container>
+          <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2 }}>
             <Box sx={{
               width: 40, height: 40, borderRadius: '12px',
@@ -427,7 +439,8 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
         <Dialog open={openSignInDialog} onClose={() => setOpenSignInDialog(false)} fullWidth maxWidth="xs">
           {openSignInDialog && <SignInRequiredPrompt onClose={() => setOpenSignInDialog(false)} />}
         </Dialog>
-      </Container>
+        </Container>
+      </Box>
     );
   };
 

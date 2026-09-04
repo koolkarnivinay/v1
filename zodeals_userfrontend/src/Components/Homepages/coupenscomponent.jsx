@@ -8,6 +8,7 @@ import axios from 'axios';
 import { hosturl } from '../libs/Constant';
 import CouponDetailDialog from '../Coupenenables/coupenenable';
 import SignInRequiredPrompt from '../authentications/SigninOverlay';
+import premiumBg from '../../assets/images/premium_section_bg.jpg';
 
 // ─────────────────────────────────────────────
 //  Polished horizontal coupon card
@@ -275,7 +276,17 @@ export default function CouponsSection() {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#F5F7FA', py: 5 }}>
+    <Box sx={{
+      position: 'relative',
+      py: 5,
+      backgroundColor: '#F8FAFC',
+      backgroundImage: `radial-gradient(ellipse at top right, rgba(124,58,237,0.07), transparent 60%), radial-gradient(ellipse at bottom left, rgba(91,33,182,0.04), transparent 60%), url(${premiumBg})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      borderTop: '1px solid rgba(226,232,240,0.8)',
+      borderBottom: '1px solid rgba(226,232,240,0.8)',
+    }}>
       <Container>
         <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2 }}>

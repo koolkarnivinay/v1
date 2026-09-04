@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  Box, Typography, Grid, Container, CircularProgress,
+  Box, Typography, Container, CircularProgress,
 } from "@mui/material";
 import axios from "axios";
 import { hosturl } from "../libs/Constant";
@@ -229,13 +229,15 @@ export default function DealsOfTheDay() {
             <CircularProgress sx={{ color: '#4361EE' }} />
           </Box>
         ) : (
-          <Grid container spacing={2.5}>
+          <Box sx={{
+            display: 'grid',
+            gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
+            gap: 2.5,
+          }}>
             {displayProducts.slice(0, 4).map((item) => (
-              <Grid item xs={6} sm={6} md={3} key={item._id}>
-                <DealCard item={item} onView={handleViewDeal} isDummy={useDummy} />
-              </Grid>
+              <DealCard key={item._id} item={item} onView={handleViewDeal} isDummy={useDummy} />
             ))}
-          </Grid>
+          </Box>
         )}
 
         {/* Show More button */}

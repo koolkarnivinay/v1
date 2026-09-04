@@ -27,6 +27,7 @@ import { hosturl } from "../libs/Constant";
 import CouponDetailDialog from "../Coupenenables/coupenenable";
 import SignInRequiredPrompt from "../authentications/SigninOverlay";
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import premiumBg from "../../assets/images/premium_section_bg.jpg";
 
 const CouponCard = ({
   coupon,
@@ -346,7 +347,18 @@ useEffect(() => {
 
 
   return (
-    <Box sx={{ marginTop: 5, marginBottom: 2, backgroundColor: '#DFF4FF', paddingLeft: '50px', paddingRight: '50px', paddingBottom: '30px' }}>
+    <Box sx={{
+      position: 'relative',
+      py: 5,
+      backgroundColor: '#F8FAFC',
+      backgroundImage: `radial-gradient(ellipse at top right, rgba(16,185,129,0.06), transparent 60%), radial-gradient(ellipse at bottom left, rgba(5,150,105,0.04), transparent 60%), url(${premiumBg})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      borderTop: '1px solid rgba(226,232,240,0.8)',
+      borderBottom: '1px solid rgba(226,232,240,0.8)',
+    }}>
+      <Container>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.2 }}>
           <Box sx={{
@@ -426,6 +438,7 @@ useEffect(() => {
       <Dialog open={openSignInDialog} onClose={() => setOpenSignInDialog(false)} fullWidth maxWidth="xs">
         {openSignInDialog && <SignInRequiredPrompt onClose={() => setOpenSignInDialog(false)} />}
       </Dialog>
+      </Container>
     </Box>
   );
 };
