@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "ZoDeals",
+    "slug": "zodeals",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#0F1B35"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.zodeals.app"
+    },
+    "android": {
+      "package": "com.zodeals.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "backgroundColor": "#0F1B35",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_MEDIA_IMAGES"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-image",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "ZoDeals needs access to your photos to set your profile picture."
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "https://api.zodeals.in"
+    }
+  }
+}

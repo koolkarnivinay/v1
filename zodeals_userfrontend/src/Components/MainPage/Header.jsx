@@ -189,13 +189,12 @@ export default function Header({ showTabs = true }) {
       {/* ── TOP ROW ── */}
       <Box sx={{
         display: 'flex', alignItems: 'center', gap: { xs: 1, md: 1.5 },
-        px: { xs: 2, md: 4 }, py: 1.2,
+        px: { xs: 1.5, md: 4 }, py: { xs: 0.8, md: 1.2 },
         borderBottom: '1px solid #F3F4F7',
-        overflow: 'hidden',
       }}>
         {/* Logo */}
         <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer', flexShrink: 0 }}>
-          <img src={Logo} alt="ZoDeals" height={38} style={{ objectFit: 'contain', display: 'block' }} />
+          <img src={Logo} alt="ZoDeals" height={isMobile ? 30 : 38} style={{ objectFit: 'contain', display: 'block' }} />
         </Box>
 
         {/* Search — desktop */}
@@ -221,7 +220,7 @@ export default function Header({ showTabs = true }) {
         )}
 
         {/* Right actions */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0.4, md: 0.8 }, flexShrink: 0 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0.2, md: 0.8 }, flexShrink: 0, ml: 'auto' }}>
           {/* Mobile search */}
           {isMobile && (
             <IconButton
@@ -242,12 +241,12 @@ export default function Header({ showTabs = true }) {
             onClick={() => navigate('/favorites')}
             sx={{
               display: 'flex', flexDirection: 'column', alignItems: 'center',
-              gap: 0.15, cursor: 'pointer', px: 1, py: 0.6,
+              gap: 0.15, cursor: 'pointer', px: { xs: 0.6, md: 1 }, py: { xs: 0.4, md: 0.6 },
               borderRadius: '10px', transition: 'all 0.2s',
               '&:hover': { backgroundColor: '#FFF0EA' },
             }}
           >
-            <Heart size={19} color="#FF6B35" strokeWidth={1.8} />
+            <Heart size={isMobile ? 20 : 19} color="#FF6B35" strokeWidth={1.8} />
             {!isMobile && (
               <Typography sx={{ fontSize: 10, fontWeight: 600, color: '#6B7280', fontFamily: 'Inter, sans-serif' }}>
                 Saved
@@ -260,7 +259,7 @@ export default function Header({ showTabs = true }) {
             onClick={() => navigate('/notifications')}
             sx={{
               display: 'flex', flexDirection: 'column', alignItems: 'center',
-              gap: 0.15, cursor: 'pointer', px: 1, py: 0.6,
+              gap: 0.15, cursor: 'pointer', px: { xs: 0.6, md: 1 }, py: { xs: 0.4, md: 0.6 },
               borderRadius: '10px', transition: 'all 0.2s',
               '&:hover': { backgroundColor: '#F5F7FA' },
             }}
@@ -289,7 +288,7 @@ export default function Header({ showTabs = true }) {
             onClick={e => setAnchorEl(e.currentTarget)}
             sx={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 0.15,
-              cursor: 'pointer', px: 1.2, py: 0.6,
+              cursor: 'pointer', px: { xs: 0.7, md: 1.2 }, py: { xs: 0.4, md: 0.6 },
               borderRadius: '10px', border: '1.5px solid',
               borderColor: token ? '#FF6B35' : '#E8ECF4',
               backgroundColor: token ? '#FFF0EA' : 'transparent',
@@ -401,9 +400,9 @@ export default function Header({ showTabs = true }) {
         <Box sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: { xs: 'flex-start', md: 'center' },
-          gap: { xs: 0.5, sm: 1, md: 1.5 },
-          px: { xs: 1.5, md: 4 },
+          justifyContent: { xs: 'flex-start', md: 'space-evenly' },
+          gap: 0,
+          px: { xs: 1.5, md: 0 },
           py: 0.4,
           overflowX: 'auto',
           backgroundColor: '#fff',
@@ -411,7 +410,11 @@ export default function Header({ showTabs = true }) {
           '&::-webkit-scrollbar': { display: 'none' },
           scrollbarWidth: 'none',
         }}>
-          {NAV_ITEMS.map(item => <NavItem key={item.label} {...item} />)}
+          {NAV_ITEMS.map(item => (
+            <Box key={item.label} sx={{ flex: { xs: '0 0 auto', md: '1 1 0' }, display: 'flex', justifyContent: 'center' }}>
+              <NavItem {...item} />
+            </Box>
+          ))}
         </Box>
       )}
 
